@@ -1,0 +1,25 @@
+Current version: 1.9
+
+Changelog
+1.9:
+- added lockability of laser targets
+1.8:
+- updated support for RHS's A-10A
+1.7:
+- added support for Fullerpj's A-10C Thunderbolt II
+1.6:
+- added support for EricJ's skins for the A-164 Wipeout
+1.5:
+- added support for STI's A-10A
+1.4:
+- added support for Peral's A-10C Thunderbolt II
+- added readme.txt (features, instructions, faq, ...)
+1.3:
+- added support for RHS's A-10A
+1.2:
+- fixed bullet drop which was to high
+- added support for the close air support module
+1.1:
+- fixed a bug causing ressources not to be found
+1.0:
+- initial release
