@@ -1,6 +1,8 @@
-Current version: 1.9
+Current version: 2.0
 
 Changelog
+2.0:
+- fixed a bug introduced with the EDEN Update causing the ammo not getting loaded
 1.9:
 - added lockability of laser targets
 1.8:
