@@ -5,7 +5,7 @@ class cfgPatches
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1.24;
-		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "AlZab_mighty_gau8_avenger", "EricJ_wipeout"};
+		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "A3_Air_F_EPC", "AlZab_mighty_gau8_avenger", "EricJ_wipeout"};
 		author[] = {"[W] Alexus, [W] Zabuza"};
 	};
 };
