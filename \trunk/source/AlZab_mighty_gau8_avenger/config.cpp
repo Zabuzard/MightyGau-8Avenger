@@ -5,7 +5,7 @@ class cfgPatches
 		units[] = {"B_Plane_CAS_01_F"};
 		weapons[] = {};
 		requiredVersion = 1.24;
-		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F"};
+		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "A3_Air_F_EPC"};
 		author[] = {"[W] Alexus, [W] Zabuza"};
 	};
 };
