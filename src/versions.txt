@@ -1,6 +1,8 @@
-Current version: 3.0
+Current version: 3.1
 
 Changelog
+3.1:
+- fixed signature keys not working
 3.0:
 - upgraded to the new sound system introduced with EDEN, this also fixes all previous sound issues
 - added support for ACE's A-10C
