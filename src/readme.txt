@@ -8,13 +8,13 @@ http://forums.bistudio.com/showthread.php?188634-Mighty-GAU-8-A-Avenger
 - increased muzzle velocity to 1030 m/s
 - increased direct and indirect hit damage
 - increased bullet spread
-- added 2 burst modes: “Low” (1.5s, 2100rpm) and “High” (1.5s, 4200rpm)
+- added 2 burst modes: â€œLowâ€ (1.5s, 2100rpm) and â€œHighâ€ (1.5s, 4200rpm)
 - magazine size of 1174 rounds
-- changed weapon sound (featuring the typical GAU-8 “fart of death”)
+- changed weapon sound (featuring the typical GAU-8 â€œfart of deathâ€)
 - new impact sound
 - smoke effect while shooting the gun
 - new impact effects (more smoke, flashing light of explosions)
-- removed tracers, only visible with NVG
+- removed tracer-effects
 - the A-164 now carries 240 countermeasure flares
 - weapon can now lock onto laser targets
 
