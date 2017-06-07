@@ -61,7 +61,7 @@ class CfgVehicles
 			"168Rnd_CMFlare_Chaff_Magazine"
 		};
 	};
-	
+
 	class CUP_B_A10_AT_USA: CUP_A10_Base
 	{
 		weapons[]=

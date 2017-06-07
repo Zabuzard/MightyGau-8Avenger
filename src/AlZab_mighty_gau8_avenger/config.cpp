@@ -59,7 +59,7 @@ class CfgVehicles
 			"240Rnd_CMFlare_Chaff_Magazine"
 		};
 	};
-	
+
 	class Plane_CAS_01_dynamicLoadout_base_F;
 	class B_Plane_CAS_01_dynamicLoadout_F : Plane_CAS_01_dynamicLoadout_base_F
 	{
@@ -90,7 +90,7 @@ class CfgWeapons
 			"shortGau8", 
 			"closeGau8"
 		};
-		
+
 		class GunParticles
 		{
 			class Effect
@@ -100,7 +100,7 @@ class CfgWeapons
 				directionName = "Gatling_barrels_start";
 			};
 		};
-		
+
 		class burstBase
 		{
 			aiDispersionCoefX = 10;
@@ -135,7 +135,7 @@ class CfgWeapons
 			useAction = 0;
 			useActionTitle = "";
 		};
-		
+
 		class burstLO : burstBase
 		{
 			displayName = "LO";
@@ -151,7 +151,7 @@ class CfgWeapons
 			multiplier = 2;
 			reloadTime = 0.037;
 		};
-		
+
 		class burstHI : burstBase
 		{
 			displayName = "HI";
@@ -167,7 +167,7 @@ class CfgWeapons
 			multiplier = 3;
 			reloadTime = 0.0128;
 		};
-		
+
 		class aiBase : burstHI
 		{
 			aiBurstTerminable = 1;
@@ -185,21 +185,21 @@ class CfgWeapons
 			midRange = 300;
 			maxRange = 600;
 		};
-		
+
 		class shortGau8: closeGau8
 		{
 			minRange = 500;
 			midRange = 750;
 			maxRange = 1100;
 		};
-		
+
 		class mediumGau8: closeGau8
 		{
 			minRange = 1000;
 			midRange = 1500;
 			maxRange = 2100;
 		};
-		
+
 		class farGau8: closeGau8
 		{
 			minRange = 2000;
