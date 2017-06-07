@@ -2,10 +2,26 @@ class cfgPatches
 {
 	class AlZab_mighty_gau8_EricJ_skins
 	{
-		units[] = {};
+		units[] =
+		{
+			"Plane_CAS_USAF_01",
+			"Plane_CAS_USAF_02",
+			"Plane_CAS_JAWS_01",
+			"Plane_CAS_CAN_01",
+			"Plane_CAS_58FS_01",
+			"Plane_CAS_Euro_01"
+		};
 		weapons[] = {};
-		requiredVersion = 1.24;
-		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "A3_Air_F_EPC", "AlZab_mighty_gau8_avenger", "EricJ_wipeout"};
+		requiredVersion = 1.70;
+		requiredAddons[] =
+		{
+			"A3_Weapons_F",
+			"A3_Air_F",
+			"A3_Air_F_EPC",
+			"A3_Air_F_EPC_Plane_CAS_01",
+			"AlZab_mighty_gau8_avenger",
+			"EricJ_wipeout"
+		};
 		author = "[W] Zabuza";
 	};
 };

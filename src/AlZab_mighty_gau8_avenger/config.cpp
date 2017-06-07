@@ -3,10 +3,20 @@ class CfgPatches
 	class AlZab_mighty_gau8_avenger
 	{
 		name="Mighty GAU-8/A Avenger";
-		units[] = {"B_Plane_CAS_01_F"};
-		weapons[] = {};
-		requiredVersion = 1.62;
-		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "A3_Air_F_EPC"};
+		units[] =
+		{
+			"B_Plane_CAS_01_F",
+			"B_Plane_CAS_01_dynamicLoadout_F"
+		};
+		weapons[] = {"Gatling_30mm_Plane_CAS_01_F"};
+		requiredVersion = 1.70;
+		requiredAddons[] =
+		{
+			"A3_Weapons_F",
+			"A3_Air_F",
+			"A3_Air_F_EPC",
+			"A3_Air_F_EPC_Plane_CAS_01"
+		};
 		author = "[W] Zabuza";
 		authors[] =
 		{
@@ -45,6 +55,18 @@ class CfgVehicles
 			"4Rnd_Bomb_04_F",
 			"7Rnd_Rocket_04_HE_F",
 			"7Rnd_Rocket_04_AP_F",
+			"Laserbatteries",
+			"240Rnd_CMFlare_Chaff_Magazine"
+		};
+	};
+	
+	class Plane_CAS_01_dynamicLoadout_base_F;
+	class B_Plane_CAS_01_dynamicLoadout_F : Plane_CAS_01_dynamicLoadout_base_F
+	{
+		magazines[] =
+		{
+			"1174Rnd_GAU8_30mm_Plane_CAS_01_F",
+			"Laserbatteries",
 			"240Rnd_CMFlare_Chaff_Magazine"
 		};
 	};
@@ -55,18 +77,18 @@ class CfgWeapons
 	class CannonCore;
 	class Gatling_30mm_Plane_CAS_01_F : CannonCore
 	{
-		displayName = "GAU-8";
-		magazines[] = {"1174Rnd_GAU8_30mm_Plane_CAS_01_F"};
 		canLock = 2;
 		dispersion = 0.006;
+		displayName = "GAU-8";
+		magazines[] = {"1174Rnd_GAU8_30mm_Plane_CAS_01_F"};
 		modes[] =
 		{
 			"burstLO",
 			"burstHI",
-			"close",
-			"short", 
-			"medium",
-			"far"
+			"farGau8",
+			"mediumGau8",
+			"shortGau8", 
+			"closeGau8"
 		};
 		
 		class GunParticles
@@ -79,30 +101,39 @@ class CfgWeapons
 			};
 		};
 		
-		class burstBase: CannonCore
+		class burstBase
 		{
-			dispersion = 0.006;
-			soundContinuous = 0;
-			initSpeed = 1030;
-			showToPlayer = 1;
-			aiRateOfFire = 0.5;
-			aiRateOfFireDistance = 50;
-			autoFire = 0;
-			minRange = 1;
-			minRangeProbab = 0.001;
-			midRange = 2;
-			midRangeProbab = 0.001;
-			maxRange = 3;
-			maxRangeProbab = 0.001;
-			ffMagnitude = 0.5;
-			ffFrequency = 11;
-			ffCount = 6;
-			flash = "gunfire";
-			flashSize = 0.1;
-			soundBurst = 1;
-			recoil = "Empty";
 			aiDispersionCoefX = 10;
 			aiDispersionCoefY = 10;
+			aiRateOfFire = 0.25;
+			aiRateOfFireDispersion = 1;
+			aiRateOfFireDistance = 500;
+			artilleryDispersion = 1;
+			artilleryCharge = 1;
+			autoFire = 0;
+			burstRangeMax = -1;
+			canShootInWater = 0;
+			dispersion = 0.006;
+			ffCount = 6;
+			ffFrequency = 11;
+			ffMagnitude = 0.5;
+			flash = "gunfire";
+			flashSize = 0.1;
+			initSpeed = 1030;
+			maxRange = 3;
+			maxRangeProbab = 0.0040000002;
+			midRange = 2;
+			midRangeProbab = 0.059999999;
+			minRange = 1;
+			minRangeProbab = 0.059999999;
+			recoil = "Empty";
+			recoilProne = "recoil_auto_primary_prone_3outof10";
+			requiredOpticType = -1;
+			showToPlayer = 1;
+			soundBurst = 1;
+			soundContinuous = 0;
+			useAction = 0;
+			useActionTitle = "";
 		};
 		
 		class burstLO : burstBase
@@ -116,8 +147,8 @@ class CfgWeapons
 				soundBegin[] = {"begin1", 1};
 				weaponSoundEffect = "DefaultRifle";
 			};
-			multiplier = 2;
 			burst = 27;
+			multiplier = 2;
 			reloadTime = 0.037;
 		};
 		
@@ -132,61 +163,48 @@ class CfgWeapons
 				soundBegin[] = {"begin1", 1};
 				weaponSoundEffect = "DefaultRifle";
 			};
-			multiplier = 3;
 			burst = 35;
+			multiplier = 3;
 			reloadTime = 0.0128;
 		};
-
-		class close: burstHI
+		
+		class aiBase : burstHI
 		{
+			aiBurstTerminable = 1;
 			showToPlayer = 0;
-			aiRateOfFire = 0.5;
+			aiRateOfFire = 0.25;
 			aiRateOfFireDistance = 400;
-			minRange = 0;
-			midRange = 200;
-			maxRange = 400;
-			minRangeProbab = 0.04;
-			midRangeProbab = 0.2;
-			maxRangeProbab = 0.1;
+			minRangeProbab = 0.95;
+			midRangeProbab = 0.90;
+			maxRangeProbab = 0.88;
 		};
 
-		class short: burstHI
+		class closeGau8: aiBase
 		{
-			showToPlayer = 0;
-			aiRateOfFire = 1;
-			aiRateOfFireDistance = 600;
-			minRange = 200;
-			midRange = 500;
-			maxRange = 800;
-			minRangeProbab = 0.1;
-			midRangeProbab = 0.2;
-			maxRangeProbab = 0.1;
+			minRange = 1;
+			midRange = 300;
+			maxRange = 600;
 		};
-
-		class medium: burstHI
+		
+		class shortGau8: closeGau8
 		{
-			showToPlayer = 0;
-			aiRateOfFire = 2;
-			aiRateOfFireDistance = 800;
-			minRange = 600;
-			midRange = 800;
-			maxRange = 1000;
-			minRangeProbab = 0.1;
-			midRangeProbab = 0.2;
-			maxRangeProbab = 0.1´;
+			minRange = 500;
+			midRange = 750;
+			maxRange = 1100;
 		};
-
-		class far: burstHI
+		
+		class mediumGau8: closeGau8
 		{
-			showToPlayer = 0;
-			aiRateOfFire = 3;
-			aiRateOfFireDistance = 1000;
-			minRange = 800;
-			minRangeProbab = 0.1;
-			midRange = 1000;
-			midRangeProbab = 0.2;
-			maxRange = 1500;
-			maxRangeProbab = 0.4;
+			minRange = 1000;
+			midRange = 1500;
+			maxRange = 2100;
+		};
+		
+		class farGau8: closeGau8
+		{
+			minRange = 2000;
+			midRange = 2500;
+			maxRange = 3000;
 		};
 	};
 };
@@ -216,23 +234,26 @@ class CfgAmmo
 
 	class GAU8_30mm_Plane_CAS_01_F : Gatling_30mm_HE_Plane_CAS_01_F
 	{
-		laserLock = 1;
+		airFriction = -0.00036;
+		caliber = 4.17;
+		craterEffects = "HEShellCrater";
+		explosionEffects = "Gau8ShellImpact";
+		explosionSoundEffect = "DefaultExplosion";
+		explosive = 0.35;
 		hit = 300;
 		indirectHit = 100;
 		indirectHitRange = 3.5;
-		caliber = 4.17;
-		airFriction = -0.00036;
-		explosive = 0.35;
+		multiSoundHit[] = {"soundHit1", 0.25, "soundHit2", 0.25, "soundHit3", 0.25, "soundHit4", 0.25};
+		muzzleEffect = "ZAB_fnc_effectFiredGau8";
 		soundHit1[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
 		soundHit2[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
 		soundHit3[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
 		soundHit4[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
-		multiSoundHit[] = {"soundHit1", 0.25, "soundHit2", 0.25, "soundHit3", 0.25, "soundHit4", 0.25};
 		SoundSetExplosion[] = {"GAU8_30mm_Exp_SoundSet"};
-		explosionSoundEffect = "DefaultExplosion";
-		explosionEffects = "Gau8ShellImpact";
-		muzzleEffect = "ZAB_fnc_effectFiredGau8";
-		craterEffects = "HEShellCrater";
+		airLock = 1;
+		irLock = 1;
+		laserLock = 1;
+		nvLock = 1;
 	};
 };
 

@@ -1,6 +1,13 @@
-Current version: 3.2
+Current version: 4.0
 
 Changelog
+4.0:
+- upgraded to ArmA version 1.70 which adds compatibility for the Jets DLC
+- fixed some bugs related to the ZEUS module and the fire support module
+- fixed a bug in the muzzle effect script that prevented AI from firing
+- fixed a bug introduced with the Jets DLC that made locking targets other than laser targets impossible
+- added support for CUP's A-10C Thunderbolt II
+- added support for CUP's A-10C Thunderbolt II (AT)
 3.2:
 - refixed signature keys not working
 3.1:

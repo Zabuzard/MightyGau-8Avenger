@@ -1,8 +1,8 @@
 private ["_sh","_i","_no"];
-_sh = nearestobject [_this select 0, _this select 4];
+_sh = vehicle (_this select 0);
 
 _i=1;
-_no=8+random 1;
+_no=8;
 while {_i<_no}
 do
 {

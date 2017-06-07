@@ -8,15 +8,15 @@ http://forums.bistudio.com/showthread.php?188634-Mighty-GAU-8-A-Avenger
 - increased muzzle velocity to 1030 m/s
 - increased direct and indirect hit damage
 - increased bullet spread
-- added 2 burst modes: ‚ÄúLow‚Äù (1.5s, 2100rpm) and ‚ÄúHigh‚Äù (1.5s, 4200rpm)
+- added 2 burst modes: ìLowî (1.5s, 2100rpm) and ìHighî (1.5s, 4200rpm)
 - magazine size of 1174 rounds
-- changed weapon sound (featuring the typical GAU-8 ‚Äúfart of death‚Äù)
+- changed weapon sound (featuring the typical GAU-8 ìfart of deathî)
 - new impact sound
 - smoke effect while shooting the gun
 - new impact effects (more smoke, flashing light of explosions)
 - removed tracer-effects
 - the A-164 now carries 240 countermeasure flares
-- weapon can now lock onto laser targets
+- weapon can now lock onto all kind of targets like laser and infrared targets
 
 **** Supported Vehicles ****
 - A-164 Wipeout (Vanilla)
@@ -27,6 +27,8 @@ http://forums.bistudio.com/showthread.php?188634-Mighty-GAU-8-A-Avenger
 - A-10A (STI)
 - A-164 Wipeout (EricJ Skins)
 - A-10C Thunderbolt II (Fullerpj)
+- A-10C Thunderbolt II (CUP)
+- A-10C Thunderbolt II (AT) (CUP)
 
 To get our support for modded vehicles working you need to copy the desired files from '/additional addon support' to '/addons'.
 ArmA will only load files from the '/addons' folder. If you add our support files but don't have the mod you will get error messages.

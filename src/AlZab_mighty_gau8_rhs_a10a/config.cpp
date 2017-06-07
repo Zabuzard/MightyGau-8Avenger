@@ -8,8 +8,18 @@ class cfgPatches
 			"RHS_A10_AT"
 		};
 		weapons[] = {};
-		requiredVersion = 1.24;
-		requiredAddons[] = {"A3_Weapons_F", "A3_Air_F", "A3_Air_F_EPC", "AlZab_mighty_gau8_avenger", "RHS_US_A2_AirImport", "rhsusf_a2port_air", "rhsusf_main"};
+		requiredVersion = 1.70;
+		requiredAddons[] =
+		{
+			"A3_Weapons_F",
+			"A3_Air_F",
+			"A3_Air_F_EPC",
+			"A3_Air_F_EPC_Plane_CAS_01",
+			"AlZab_mighty_gau8_avenger",
+			"RHS_US_A2_AirImport",
+			"rhsusf_a2port_air",
+			"rhsusf_main"
+		};
 		author = "[W] Zabuza";
 	};
 };
