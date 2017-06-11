@@ -207,11 +207,11 @@ class CfgMagazines
 
 	class 1174Rnd_GAU8_30mm_Plane_CAS_01_F : 1000Rnd_Gatling_30mm_Plane_CAS_01_F
 	{
-		initSpeed = 1030;
-		tracersEvery = 0;
-		count = 1174;
-		nameSound = "cannon";
 		ammo = "GAU8_30mm_Plane_CAS_01_F";
+		count = 1174;
+		initSpeed = 1030;
+		nameSound = "cannon";
+		tracersEvery = 0;
 	};
 };
 
@@ -232,12 +232,10 @@ class CfgAmmo
 		hit = 300;
 		indirectHit = 100;
 		indirectHitRange = 3.5;
-		multiSoundHit[] = {"soundHit1", 0.25, "soundHit2", 0.25, "soundHit3", 0.25, "soundHit4", 0.25};
+		multiSoundHit[] = {"soundHit1", 0.5, "soundHit2", 0.5};
 		muzzleEffect = "ZAB_fnc_effectFiredGau8";
 		soundHit1[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 2.562278, 1, 1500};
 		soundHit2[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 2.562278, 1, 1500};
-		soundHit3[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact3", 2.562278, 1, 1500};
-		soundHit4[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 2.562278, 1, 1500};
 		SoundSetExplosion[] = {"GAU8_30mm_Exp_SoundSet"};
 		airLock = 1;
 		irLock = 1;
@@ -266,36 +264,10 @@ class Gau8ShellImpact
 		interval = 1;
 		lifeTime = 1;
 	};
-	class ExpSpark {
-		simulation = "particles";
-		type = "Gau8ShellSprksCldlt";
-		position[] = {0,0,0};
-		intensity = 1;
-		interval = 1;
-		lifeTime = 1;
-	};
 	class SmallSmoke1
 	{
 		simulation = "particles";
 		type = "Gau8ShellSmkCldlt";
-		position[] = {0,0,0};
-		intensity = 1;
-		interval = 1;
-		lifeTime = 1;
-	};
-	class MedDust1
-	{
-		simulation = "particles";
-		type = "Gau8ShellDstCldlt";
-		position[] = {0,0,0};
-		intensity = 1;
-		interval = 1;
-		lifeTime = 1;
-	};
-	class BigDirt1
-	{
-		simulation = "particles";
-		type = "Gau8ShellDrtCldlt";
 		position[] = {0,0,0};
 		intensity = 1;
 		interval = 1;
@@ -395,16 +367,17 @@ class CfgCloudlets
 		circleVelocity[] = {0.3, 0, 0.3};
 		color[] =
 		{
+			{0.3, 0.3, 0.3, 0.7},
 			{0.5, 0.5, 0.5, 0.4},
 			{0.5, 0.5, 0.5, 0.22},
 			{0.6, 0.6, 0.6, 0.09},
 			{0.8, 0.8, 0.8, 0.01}
 		};
-		colorVar[] = {0, 0, 0, 0.3};
-		interval = 0.007;
-		lifeTime = 6;
+		colorVar[] = {0, 0, 0, 0.4};
+		interval = 0.003;
+		lifeTime = 4;
 		lifeTimeVar = 1.5;
-		moveVelocity[] = {0, 12, 0};
+		moveVelocity[] = {0, 15, 0};
 		MoveVelocityVar[] = {0.5, 12, 0.5};
 		particleFSFrameCount = 48;
 		particleFSIndex = 7;
@@ -413,13 +386,13 @@ class CfgCloudlets
 		randomDirectionIntensityVar = 0.05;
 		randomDirectionPeriod = 0.2;
 		randomDirectionperiodVar = 0.2;
-		rotationVelocity = 1;
-		rotationVelocityVar = 120;
+		rotationVelocity = 0.2;
+		rotationVelocityVar = 1;
 		rubbing = 0.5;
 		size[] = {6, 20};
 		sizeVar = 0.3;
 		volume = 1;
-		weight = 3;
+		weight = 2;
 	};
 	class Gau8ShellDstCldlt : Gau8DefaultCldlt
 	{
@@ -512,22 +485,18 @@ class CfgSoundSets
 {
 	class GAU8_30mm_Exp_SoundSet
 	{
+		distanceFilter = "none";
+		doppler = 0;
+		loop = 0;
+		sound3DProcessingType="ExplosionLight3DProcessingType";
 		soundShaders[] =
 		{
 			"GAU8_30mm_closeExp_SoundShader"
 		};
-		volumeFactor = 1;
-		volumeCurve = "InverseSquare2Curve";
 		spatial = 1;
-		doppler = 0;
-		loop = 0;
 		speedOfSound=1;
-		frequencyRandomizer=1.5;
-		frequencyRandomizerMin=0.1;
-		occlusionFactor=0.2;
-		obstructionFactor=0;
-		sound3DProcessingType="ExplosionMedium3DProcessingType";
-		distanceFilter = "none";
+		volumeCurve = "InverseSquare2Curve";
+		volumeFactor = 1;
 	};
 };
 
@@ -535,13 +504,6 @@ class CfgSoundShaders
 {
 	class GAU8_30mm_closeExp_SoundShader
 	{
-		samples[] =
-		{
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 1},
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 1},
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact3", 1}
-		};
-		volume = 0.8;
 		range = 1500;
 		rangeCurve[] =
 		{
@@ -549,5 +511,11 @@ class CfgSoundShaders
 			{800, 0.75},
 			{2000, 0}
 		};
+		samples[] =
+		{
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 1}
+		};
+		volume = 0.8;
 	};
 };
