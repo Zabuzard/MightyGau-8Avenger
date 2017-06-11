@@ -83,8 +83,7 @@ class CfgWeapons
 		magazines[] = {"1174Rnd_GAU8_30mm_Plane_CAS_01_F"};
 		modes[] =
 		{
-			"burstLO",
-			"burstHI",
+			"autoHI",
 			"farGau8",
 			"mediumGau8",
 			"shortGau8", 
@@ -101,7 +100,7 @@ class CfgWeapons
 			};
 		};
 
-		class burstBase
+		class autoBase
 		{
 			aiDispersionCoefX = 10;
 			aiDispersionCoefY = 10;
@@ -110,7 +109,7 @@ class CfgWeapons
 			aiRateOfFireDistance = 500;
 			artilleryDispersion = 1;
 			artilleryCharge = 1;
-			autoFire = 0;
+			autoFire = 1;
 			burstRangeMax = -1;
 			canShootInWater = 0;
 			dispersion = 0.006;
@@ -130,45 +129,35 @@ class CfgWeapons
 			recoilProne = "recoil_auto_primary_prone_3outof10";
 			requiredOpticType = -1;
 			showToPlayer = 1;
-			soundBurst = 1;
-			soundContinuous = 0;
+			soundBurst = 0;
+			soundContinuous = 1;
 			useAction = 0;
 			useActionTitle = "";
+			weaponSoundEffect = "";
+			sound[] = {"", 10, 1};
+			soundBegin[] = {"sound", 1};
+			soundBeginWater[] = {"sound", 1};
+			soundClosure[] = {"sound", 1};
+			soundEnd[] = {"sound", 1};
+			soundLoop[] = {};
 		};
 
-		class burstLO : burstBase
-		{
-			displayName = "LO";
-			textureType = "burst";
-			sounds[] = {StandardSound};
- 			class StandardSound
-			{
-				begin1[] = {"\AlZab_mighty_gau8_avenger\sounds\weapon\GAU8_LO", 6.581072, 1, 4500};
-				soundBegin[] = {"begin1", 1};
-				weaponSoundEffect = "DefaultRifle";
-			};
-			burst = 27;
-			multiplier = 2;
-			reloadTime = 0.037;
-		};
-
-		class burstHI : burstBase
+		class autoHI : autoBase
 		{
 			displayName = "HI";
 			textureType = "fullAuto";
 			sounds[] = {StandardSound};
  			class StandardSound
 			{
-				begin1[] = {"\AlZab_mighty_gau8_avenger\sounds\weapon\GAU8_HI", 6.581072, 1, 4500};
+				begin1[] = {"\AlZab_mighty_gau8_avenger\sounds\weapon\GAU8_fadeIn_loop_fadeOut", 4.92341, 1, 4500, {8816, 45548}};
 				soundBegin[] = {"begin1", 1};
-				weaponSoundEffect = "DefaultRifle";
 			};
 			burst = 35;
-			multiplier = 3;
+			multiplier = 2;
 			reloadTime = 0.0128;
 		};
 
-		class aiBase : burstHI
+		class aiBase : autoHI
 		{
 			aiBurstTerminable = 1;
 			showToPlayer = 0;
@@ -245,10 +234,10 @@ class CfgAmmo
 		indirectHitRange = 3.5;
 		multiSoundHit[] = {"soundHit1", 0.25, "soundHit2", 0.25, "soundHit3", 0.25, "soundHit4", 0.25};
 		muzzleEffect = "ZAB_fnc_effectFiredGau8";
-		soundHit1[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
-		soundHit2[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
-		soundHit3[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
-		soundHit4[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 3.162278, 1, 2000};
+		soundHit1[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 2.562278, 1, 1500};
+		soundHit2[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 2.562278, 1, 1500};
+		soundHit3[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact3", 2.562278, 1, 1500};
+		soundHit4[] = {"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 2.562278, 1, 1500};
 		SoundSetExplosion[] = {"GAU8_30mm_Exp_SoundSet"};
 		airLock = 1;
 		irLock = 1;
@@ -527,12 +516,17 @@ class CfgSoundSets
 		{
 			"GAU8_30mm_closeExp_SoundShader"
 		};
-		volumeFactor = 1.5;
+		volumeFactor = 1;
 		volumeCurve = "InverseSquare2Curve";
 		spatial = 1;
 		doppler = 0;
 		loop = 0;
-		sound3DProcessingType = "ExplosionLight3DProcessingType";
+		speedOfSound=1;
+		frequencyRandomizer=1.5;
+		frequencyRandomizerMin=0.1;
+		occlusionFactor=0.2;
+		obstructionFactor=0;
+		sound3DProcessingType="ExplosionMedium3DProcessingType";
 		distanceFilter = "none";
 	};
 };
@@ -543,12 +537,12 @@ class CfgSoundShaders
 	{
 		samples[] =
 		{
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 1},
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 1},
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_Hit1", 1}
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact3", 1}
 		};
-		volume = 1;
-		range = 2000;
+		volume = 0.8;
+		range = 1500;
 		rangeCurve[] =
 		{
 			{0, 1},
