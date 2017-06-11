@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="GAU8_fadeIn_loop_fadeOut_data" version="1.3.0" audacityversion="2.1.1" sel0="0.8309660034" sel1="0.8309660034" vpos="16" h="0.0000000000" zoom="510.2495147421" rate="44100.0" snapto="off" selectionformat="samples" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="GAU8Cannon" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="8816">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000440.au" len="8816" min="-0.891266" max="0.891266" rms="0.305969"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.19990930">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="45548">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000082.au" len="45548" min="-0.891266" max="0.891266" rms="0.686036"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="1.23274376">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="93132">
+				<waveblock start="0">
+					<simpleblockfile filename="e000002a.au" len="93132" min="-0.891266" max="0.891266" rms="0.138941"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
