@@ -2,7 +2,7 @@ class CfgPatches
 {
 	class AlZab_mighty_gau8_avenger
 	{
-		name="Mighty GAU-8/A Avenger";
+		name = "Mighty GAU-8/A Avenger";
 		units[] =
 		{
 			"B_Plane_CAS_01_F",
@@ -84,10 +84,11 @@ class CfgWeapons
 		modes[] =
 		{
 			"autoHI",
-			"farGau8",
-			"mediumGau8",
+			"closeGau8",
+			"nearGau8", 
 			"shortGau8", 
-			"closeGau8"
+			"mediumGau8",
+			"farGau8"
 		};
 
 		class GunParticles
@@ -149,7 +150,7 @@ class CfgWeapons
 			sounds[] = {StandardSound};
  			class StandardSound
 			{
-				begin1[] = {"\AlZab_mighty_gau8_avenger\sounds\weapon\GAU8_fadeIn_loop_fadeOut", 4.92341, 1, 4500, {8816, 45548}};
+				begin1[] = {"\AlZab_mighty_gau8_avenger\sounds\weapon\GAU8_fadeIn_loop_fadeOut", 5.42341, 1, 4500, {8816, 45548}};
 				soundBegin[] = {"begin1", 1};
 			};
 			burst = 35;
@@ -161,39 +162,66 @@ class CfgWeapons
 		{
 			aiBurstTerminable = 1;
 			showToPlayer = 0;
-			aiRateOfFire = 0.25;
-			aiRateOfFireDistance = 400;
-			minRangeProbab = 0.95;
-			midRangeProbab = 0.90;
-			maxRangeProbab = 0.88;
 		};
 
 		class closeGau8: aiBase
 		{
+			aiRateOfFire = 0.25;
+			aiRateOfFireDistance = 400;
 			minRange = 1;
-			midRange = 300;
-			maxRange = 600;
+			minRangeProbab = 0.34999999;
+			midRange = 200;
+			midRangeProbab = 0.88;
+			maxRange = 400;
+			maxRangeProbab = 0.30000001;
+		};
+		
+		class nearGau8: aiBase
+		{
+			aiRateOfFire = 0.25;
+			aiRateOfFireDistance = 400;
+			minRange = 1;
+			minRangeProbab = 0.34999999;
+			midRange = 150;
+			midRangeProbab = 0.88;
+			maxRange = 300;
+			maxRangeProbab = 0.30000001;
 		};
 
 		class shortGau8: closeGau8
 		{
-			minRange = 500;
-			midRange = 750;
-			maxRange = 1100;
+			aiRateOfFire = 0.5;
+			aiRateOfFireDistance = 600;
+			minRange = 200;
+			minRangeProbab = 0.30000001;
+			midRange = 400;
+			midRangeProbab = 0.88;
+			maxRange = 600;
+			maxRangeProbab = 0.30000001;
 		};
 
 		class mediumGau8: closeGau8
 		{
-			minRange = 1000;
-			midRange = 1500;
-			maxRange = 2100;
+			aiRateOfFire = 1;
+			aiRateOfFireDistance = 900;
+			minRange = 400;
+			minRangeProbab = 0.30000001;
+			midRange = 700;
+			midRangeProbab = 0.77999997;
+			maxRange = 900;
+			maxRangeProbab = 0.2;
 		};
 
 		class farGau8: closeGau8
 		{
-			minRange = 2000;
-			midRange = 2500;
-			maxRange = 3000;
+			aiRateOfFire = 1.5;
+			aiRateOfFireDistance = 1500;
+			minRange = 800;
+			minRangeProbab = 0.2;
+			midRange = 1000;
+			midRangeProbab = 0.60000002;
+			maxRange = 1500;
+			maxRangeProbab = 0.1;
 		};
 	};
 };
@@ -264,10 +292,36 @@ class Gau8ShellImpact
 		interval = 1;
 		lifeTime = 1;
 	};
+	class ExpSpark {
+		simulation = "particles";
+		type = "Gau8ShellSprksCldlt";
+		position[] = {0,0,0};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 1;
+	};
 	class SmallSmoke1
 	{
 		simulation = "particles";
 		type = "Gau8ShellSmkCldlt";
+		position[] = {0,0,0};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 1;
+	};
+	class MedDust1
+	{
+		simulation = "particles";
+		type = "Gau8ShellDstCldlt";
+		position[] = {0,0,0};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 1;
+	};
+	class BigDirt1
+	{
+		simulation = "particles";
+		type = "Gau8ShellDrtCldlt";
 		position[] = {0,0,0};
 		intensity = 1;
 		interval = 1;
@@ -488,14 +542,18 @@ class CfgSoundSets
 		distanceFilter = "none";
 		doppler = 0;
 		loop = 0;
-		sound3DProcessingType="ExplosionLight3DProcessingType";
+		occlusionFactor = 0.2;
+		obstructionFactor = 0;
+		sound3DProcessingType="GAU8_expMedMonoProcessor";
 		soundShaders[] =
 		{
-			"GAU8_30mm_closeExp_SoundShader"
+			"GAU8_30mm_closeExp_SoundShader",
+			"GAU8_30mm_distantExp_SoundShader",
+			"GAU8_30mm_farExp_SoundShader"
 		};
 		spatial = 1;
-		speedOfSound=1;
-		volumeCurve = "InverseSquare2Curve";
+		speedOfSound = 1;
+		volumeCurve = "GAU8_expMedCurve";
 		volumeFactor = 1;
 	};
 };
@@ -504,18 +562,83 @@ class CfgSoundShaders
 {
 	class GAU8_30mm_closeExp_SoundShader
 	{
-		range = 1500;
+		range = 300;
 		rangeCurve[] =
 		{
 			{0, 1},
-			{800, 0.75},
-			{2000, 0}
+			{299.5, 1},
+			{300, 0}
 		};
 		samples[] =
 		{
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact1", 1},
-			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact2", 1}
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_close1", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_close2", 1}
 		};
 		volume = 0.8;
+	};
+	class GAU8_30mm_distantExp_SoundShader
+	{
+		range = 600;
+		rangeCurve[] =
+		{
+			{0, 0},
+			{299.5, 0},
+			{300, 1},
+			{599.5, 1},
+			{600, 0}
+		};
+		samples[] =
+		{
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_distant1", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_distant2", 1}
+		};
+		volume = 0.8;
+	};
+	class GAU8_30mm_farExp_SoundShader
+	{
+		range = 1500;
+		rangeCurve[] =
+		{
+			{0, 0},
+			{599.5, 0},
+			{600, 1},
+			{1499.5, 1},
+			{1500, 0}
+		};
+		samples[] =
+		{
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_far1", 1},
+			{"\AlZab_mighty_gau8_avenger\sounds\ammo\GAU8_ground_impact_far2", 1}
+		};
+		volume = 0.8;
+	};
+};
+
+class CfgSoundCurves
+{
+	class GAU8_expMedCurve
+	{
+		points[] =
+		{
+			{0, 1},
+			{0.002, 0.98},
+			{0.007, 0.9},
+			{0.1, 0.8},
+			{0.8, 0.1},
+			{0.9, 0.05},
+			{1, 0}
+		};
+	};
+};
+
+class CfgSound3DProcessors
+{
+	class GAU8_expMedMonoProcessor
+	{
+		innerRange = 1500;
+		radius = 0;
+		range = 1500;
+		rangeCurve = "GAU8_expMedCurve";
+		type = "emitter";
 	};
 };
