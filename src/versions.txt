@@ -1,6 +1,18 @@
-Current version: 4.0
+Current version: 5.0
 
 Changelog
+5.0:
+- removed the burst modes
+- added a full-auto mode
+- improved the shooting sound
+- improved the impact sounds
+- improved the behavior of the AI, it now favors short precise bursts
+- fixed a bug where the AI would only use the gun instead of a mix of weapons
+- added an optional module that increases the performance
+- fixed support for the A-10s of EricJ
+- added support for the A-10s of Firewill
+- renamed all tags and classnames, magazine is 'MG8_1174Rnd_Gau8_30mm' and ammo is 'MG8_Gau8_30mm' now
+
 4.0:
 - upgraded to ArmA version 1.70 which adds compatibility for the Jets DLC
 - fixed some bugs related to the ZEUS module and the fire support module
