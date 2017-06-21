@@ -3,4 +3,4 @@ Modification for the game 'ArmA 3'. Basically the mod changes the 20 mm gun of t
 
 The available documentation can be found in [our wiki](https://github.com/ZabuzaW/MightyGau-8Avenger/wiki).
 
-Our website with more detailed information: [Forum Bistudio](https://forums.bistudio.com/topic/178360-mighty-gau-8a-avenger/)
+Our website with more detailed information: [Bohemia Forum](https://forums.bistudio.com/forums/topic/205808-the-mighty-gau-8-avenger-2017/)
