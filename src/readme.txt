@@ -1,7 +1,7 @@
 ******* The mighty GAU-8/A Avenger *******
 
 **** Bistudio Forum ****
-http://forums.bistudio.com/showthread.php?188634-Mighty-GAU-8-A-Avenger
+https://forums.bistudio.com/forums/topic/205808-the-mighty-gau-8-avenger-2017/
 
 **** Features ****
 - changed the calibre to 30mm
