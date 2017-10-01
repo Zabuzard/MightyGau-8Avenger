@@ -234,6 +234,7 @@ class CfgMagazines
 		ammo = "MG8_Gau8_30mm";
 		count = 1174;
 		initSpeed = 1030;
+		muzzleImpulseFactor = 0;
 		nameSound = "cannon";
 		tracersEvery = 0;
 	};
