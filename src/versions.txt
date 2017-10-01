@@ -1,6 +1,9 @@
-Current version: 5.0
+Current version: 5.1
 
 Changelog
+5.1:
+- fixed a bug introduced with a recent engine update that caused an extreme slowdown while shooting
+
 5.0:
 - removed the burst modes
 - added a full-auto mode
