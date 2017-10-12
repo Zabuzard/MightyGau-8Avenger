@@ -1,6 +1,9 @@
-Current version: 5.1
+Current version: 5.2
 
 Changelog
+5.2:
+- fixed support for RHS
+
 5.1:
 - fixed a bug introduced with a recent engine update that caused an extreme slowdown while shooting
 

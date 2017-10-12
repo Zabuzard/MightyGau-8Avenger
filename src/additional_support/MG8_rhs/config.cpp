@@ -36,29 +36,10 @@ class CfgVehicles
 		{
 			"rhs_weap_MASTERSAFE",
 			"Gatling_30mm_Plane_CAS_01_F",
-			"rhs_weap_SidewinderLauncher",
-			"rhs_weap_agm65",
-			"rhs_weap_FFARLauncher",
-			"rhs_weap_gbu12",
 			"rhsusf_weap_CMFlareLauncher"
 		};
 		magazines[] =
 		{
-			"rhs_pod_empty",
-			"rhs_pod_lau68",
-			"rhs_pod_AGM65",
-			"rhs_mag_gbu12",
-			"rhs_mag_gbu12",
-			"rhs_pod_empty",
-			"rhs_mag_gbu12",
-			"rhs_mag_gbu12",
-			"rhs_pod_AGM65",
-			"rhs_pod_lau68",
-			"rhs_mag_ANALQ131",
-			"rhs_mag_Sidewinder_a10_2",
-			"rhs_mag_FFAR_A10_14",
-			"rhs_mag_agm65",
-			"rhs_mag_agm65",
 			"MG8_1174Rnd_Gau8_30mm",
 			"240Rnd_CMFlare_Chaff_Magazine"
 		};
@@ -70,35 +51,10 @@ class CfgVehicles
 		{
 			"rhs_weap_MASTERSAFE",
 			"Gatling_30mm_Plane_CAS_01_F",
-			"rhs_weap_SidewinderLauncher",
-			"rhs_weap_agm65",
-			"rhs_weap_FFARLauncher",
-			"rhs_weap_gbu12",
 			"rhsusf_weap_CMFlareLauncher"
 		};
 		magazines[] =
 		{
-			"rhs_pod_empty",
-			"rhs_pod_lau68",
-			"rhs_pod_agm65x3_rack",
-			"rhs_mag_gbu12",
-			"rhs_mag_gbu12",
-			"rhs_pod_empty",
-			"rhs_mag_gbu12",
-			"rhs_mag_gbu12",
-			"rhs_pod_agm65x3_rack",
-			"rhs_pod_lau68",
-			"rhs_mag_ANALQ131",
-			"rhs_mag_Sidewinder_a10_2",
-			"rhs_mag_FFAR_A10_14",
-			"rhs_pod_empty_agm65",
-			"rhs_pod_empty_agm65",
-			"rhs_mag_agm65_x3",
-			"rhs_mag_agm65_x3",
-			"rhs_mag_agm65_x3",
-			"rhs_mag_agm65_x3",
-			"rhs_mag_agm65_x3",
-			"rhs_mag_agm65_x3",
 			"MG8_1174Rnd_Gau8_30mm",
 			"240Rnd_CMFlare_Chaff_Magazine"
 		};
