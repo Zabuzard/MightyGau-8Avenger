@@ -146,7 +146,7 @@ class CfgWeapons
 			sounds[] = {StandardSound};
  			class StandardSound
 			{
-				begin1[] = {"\MG8_core\sounds\weapon\Gau8_fadeIn_loop_fadeOut", 5.82341, 1, 4500, {8816, 45548}};
+				begin1[] = {"\MG8_core\sounds\weapon\Gau8_fadeIn_loop_fadeOut", 7, 1, 6500};
 				soundBegin[] = {"begin1", 1};
 			};
 			burst = 35;
